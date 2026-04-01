@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel – Bavozan Group</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="login-wrapper">
+  <div class="login-card">
+    <img src="logo.png" alt="Bavozan Group" class="login-logo" onerror="this.style.display='none'">
+    <div class="login-logo-text"><span>BAVOZAN</span>GROUP</div>
+    <div class="login-sub">Admin Panel – Restricted Access</div>
+    <input class="login-input" type="text" id="loginUser" placeholder="Username" autocomplete="off">
+    <input class="login-input" type="password" id="loginPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">🔐 Login</button>
+    <div class="login-err" id="loginErr"></div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel" style="display:none;" class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="logo.png" alt="" onerror="this.style.display='none'">
+        <div class="sidebar-logo-text">BAVOZAN</div>
+      </div>
+      <div class="sidebar-badge">Admin Panel</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Dashboard</div>
+      <a class="sidebar-link active" onclick="showPage('dashboard')">
+        <span class="sl-icon">📊</span> Dashboard
+      </a>
+      <div class="sidebar-section-label">Management</div>
+      <a class="sidebar-link" onclick="showPage('orders')">
+        <span class="sl-icon">📦</span> Orders
+        <span id="pendingBadge" style="margin-left:auto;background:var(--burg);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;"></span>
+      </a>
+      <a class="sidebar-link" onclick="showPage('products')">
+        <span class="sl-icon">⌚</span> Products
+      </a>
+      <a class="sidebar-link" onclick="showPage('add-product')">
+        <span class="sl-icon">➕</span> Add Product
+      </a>
+      <div class="sidebar-section-label">Store</div>
+      <a class="sidebar-link" onclick="showPage('inventory')">
+        <span class="sl-icon">📋</span> Inventory
+      </a>
+      <a class="sidebar-link" onclick="showPage('analytics')">
+        <span class="sl-icon">📈</span> Analytics
+      </a>
+      <div class="sidebar-section-label">Settings</div>
+      <a class="sidebar-link" href="index.html" target="_blank">
+        <span class="sl-icon">🌐</span> View Store
+      </a>
+      <a class="sidebar-link" onclick="logout()">
+        <span class="sl-icon">🚪</span> Logout
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      Bavozan Group © 2026<br>Erbil, Kurdistan
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page-section">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title">Dashboard</div>
+          <div class="admin-page-sub">Welcome back, Admin 👋</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-burg" onclick="showPage('add-product')">➕ Add Product</button>
+        </div>
+      </div>
+      <div class="stats-row" id="statsRow">
+        <!-- Populated by JS -->
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3>📦 Recent Orders</h3>
+          <button class="btn-ghost btn-sm" onclick="showPage('orders')">View All</button>
+        </div>
+        <div class="admin-card-body" style="padding:0;">
+          <div id="recentOrdersTable"></div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h3>📊 Orders This Week</h3></div>
+        <div class="admin-card-body">
+          <div class="mini-chart" id="weekChart"></div>
+          <div style="display:flex;gap:16px;margin-top:12px;font-size:11px;color:var(--w60);">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDERS PAGE -->
+    <div id="page-orders" class="page-section" style="display:none;">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title">Orders</div>
+          <div class="admin-page-sub">Manage all customer orders</div>
+        </div>
+        <div class="topbar-actions">
+          <select id="orderFilterStatus" onchange="renderOrders()" style="background:var(--b4);border:1.5px solid var(--w10);color:var(--white);padding:10px 14px;border-radius:8px;font-size:13px;outline:none;">
+            <option value="">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <button class="btn-danger" onclick="clearAllOrders()">🗑 Clear All</button>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-body" style="padding:0;">
+          <div id="ordersTableContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="page-products" class="page-section" style="display:none;">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title">Products</div>
+          <div class="admin-page-sub">Manage your WHOOP listings</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-burg" onclick="showPage('add-product')">➕ Add Product</button>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-body" style="padding:0;">
+          <div id="productsTableContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD PRODUCT PAGE -->
+    <div id="page-add-product" class="page-section" style="display:none;">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title" id="addProductTitle">Add New Product</div>
+          <div class="admin-page-sub">List a new WHOOP device or accessory</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn-ghost" onclick="showPage('products')">← Back to Products</button>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3>⌚ Product Details</h3>
+        </div>
+        <div class="admin-card-body">
+          <input type="hidden" id="editProductId">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Product Name *</label>
+              <input type="text" id="pName" placeholder="e.g. WHOOP 5.0 – Onyx Black">
+            </div>
+            <div class="form-group">
+              <label>Category *</label>
+              <select id="pCategory">
+                <option value="whoop5">WHOOP 5.0</option>
+                <option value="whoop4">WHOOP 4.0 Peak</option>
+                <option value="band">Band / Accessory</option>
+                <option value="used">Used WHOOP</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Generation Label</label>
+              <input type="text" id="pGen" placeholder="e.g. Generation 5.0 • NEW">
+            </div>
+            <div class="form-group">
+              <label>Badge Text</label>
+              <input type="text" id="pBadge" placeholder="e.g. New / Used / Peak">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description *</label>
+            <textarea id="pDesc" placeholder="Describe the product features, condition, subscription status..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Subscription Status</label>
+              <select id="pSub">
+                <option value="with">With Subscription</option>
+                <option value="without">No Subscription</option>
+                <option value="na">Not Applicable (Band)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Condition</label>
+              <select id="pCondition">
+                <option value="new">Brand New</option>
+                <option value="used-excellent">Used – Excellent</option>
+                <option value="used-good">Used – Good</option>
+                <option value="refurb">Refurbished</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Product Tags (comma separated)</label>
+            <input type="text" id="pTags" placeholder="e.g. New, With Subscription, Limited Stock">
+          </div>
+          <div class="form-group">
+            <label>Product Image</label>
+            <div class="img-upload-zone" onclick="document.getElementById('pImageInput').click()">
+              <input type="file" id="pImageInput" accept="image/*" onchange="previewImage(event)" style="display:none;">
+              <div class="iu-icon">🖼️</div>
+              <p>Click to upload product image<br><small>JPG, PNG, WebP – max 5MB</small></p>
+            </div>
+            <img id="imgPreview" class="img-preview" alt="Preview">
+          </div>
+          <div style="display:flex;gap:12px;margin-top:8px;">
+            <button class="btn-burg" onclick="saveProduct()">💾 Save Product</button>
+            <button class="btn-ghost" onclick="resetProductForm()">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY PAGE -->
+    <div id="page-inventory" class="page-section" style="display:none;">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title">Inventory</div>
+          <div class="admin-page-sub">Track your WHOOP stock</div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h3>📋 Stock Overview</h3></div>
+        <div class="admin-card-body">
+          <div id="inventoryContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS PAGE -->
+    <div id="page-analytics" class="page-section" style="display:none;">
+      <div class="admin-topbar">
+        <div>
+          <div class="admin-page-title">Analytics</div>
+          <div class="admin-page-sub">Sales and order insights</div>
+        </div>
+      </div>
+      <div class="stats-row" id="analyticsStats"></div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h3>📊 Orders by City Type</h3></div>
+        <div class="admin-card-body" id="analyticsCities"></div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-header"><h3>⌚ Popular Products</h3></div>
+        <div class="admin-card-body" id="analyticsProducts"></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="a-modal-overlay" id="orderDetailModal">
+  <div class="a-modal-box">
+    <div class="a-modal-header">
+      <h2>📦 Order Details</h2>
+      <button class="a-modal-close" onclick="closeOrderModal()">✕</button>
+    </div>
+    <div id="orderDetailContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>

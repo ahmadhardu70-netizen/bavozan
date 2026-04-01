@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bavozan Group – Official WHOOP Store in Erbil, Iraq</title>
+  <meta name="description" content="Bavozan Group – The first official WHOOP store in Kurdistan, Erbil. Shop WHOOP 4.0 Peak, WHOOP 5.0, bands, and accessories. Delivery across all Iraq.">
+  <meta name="keywords" content="WHOOP, Bavozan Group, Erbil, Kurdistan, Iraq, fitness tracker, WHOOP 5.0, WHOOP 4.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-logo"><span>BAVOZAN</span>GROUP</div>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/9647501957254" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar" id="announcementBar">
+  🏆 Bavozan Group – Pioneer of WHOOP in Kurdistan since 2026 &nbsp;|&nbsp; Free consultation • Fast delivery across Iraq 🚀
+</div>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="overlay-dim" id="overlayDim" onclick="closeMobileNav()"></div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="#home" onclick="closeMobileNav()" data-i18n="nav_home">Home</a>
+  <a href="#products" onclick="closeMobileNav()" data-i18n="nav_products">Products</a>
+  <a href="#generations" onclick="closeMobileNav()" data-i18n="nav_generations">Generations</a>
+  <a href="#about" onclick="closeMobileNav()" data-i18n="nav_about">About</a>
+  <a href="#contact" onclick="closeMobileNav()" data-i18n="nav_contact">Contact</a>
+  <a href="admin.html" onclick="closeMobileNav()">Admin</a>
+</nav>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="logo.png" alt="Bavozan Group" onerror="this.style.display='none'">
+      <div class="nav-logo-text">
+        <span class="bold">BAVOZAN</span><span class="light">GROUP</span>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
+      <li><a href="#products" data-i18n="nav_products">Products</a></li>
+      <li><a href="#generations" data-i18n="nav_generations">Generations</a></li>
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-selector">
+        🌐
+        <select id="langSelect" onchange="setLanguage(this.value)">
+          <option value="en" selected>EN</option>
+          <option value="sor">Sorani</option>
+          <option value="ar">عربي</option>
+        </select>
+      </div>
+      <button class="btn-nav-order" onclick="scrollToProducts()" data-i18n="nav_order">Order Now</button>
+      <button class="nav-hamburger" id="hamburgerBtn" onclick="openMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge" data-i18n="hero_badge">Kurdistan's First WHOOP Store</div>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title1">Track. Recover.</span><br>
+        <span class="gradient-text" data-i18n="hero_title2">Perform Better.</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Bavozan Group brings the world's most advanced fitness wearable to Kurdistan and Iraq. Discover WHOOP 4.0 Peak and the all-new WHOOP 5.0 – your ultimate health and performance companion.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="scrollToProducts()">
+          🛒 <span data-i18n="hero_shop">Shop Now</span>
+        </button>
+        <button class="btn-outline" onclick="scrollToSection('generations')">
+          ⚡ <span data-i18n="hero_explore">Explore WHOOP 5.0</span>
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">2026</div>
+          <div class="stat-label" data-i18n="stat_since">Est. in Kurdistan</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label" data-i18n="stat_original">Original</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Iraq</div>
+          <div class="stat-label" data-i18n="stat_delivery">Wide Delivery</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-device-frame">
+        <div class="hero-glow-orb"></div>
+        <div class="product-image-placeholder" style="padding:80px;text-align:center;">
+          <div style="font-size:120px;">⌚</div>
+          <div style="margin-top:16px;font-size:28px;font-weight:900;background:linear-gradient(135deg,#8B1A28,#E8A0B0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">WHOOP 5.0</div>
+        </div>
+      </div>
+      <div class="hero-feature-cards">
+        <div class="hero-feature-card">
+          <div class="hfc-icon">📊</div>
+          <div class="hfc-text">Health Monitor <span>24/7 Tracking</span></div>
+        </div>
+        <div class="hero-feature-card">
+          <div class="hfc-icon">💪</div>
+          <div class="hfc-text">Performance Coach <span>AI-Powered</span></div>
+        </div>
+        <div class="hero-feature-card">
+          <div class="hfc-icon">🔋</div>
+          <div class="hfc-text">Long Battery <span>4-5 Days</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS TICKER -->
+<section class="brands-section">
+  <div class="brands-ticker-wrapper" id="tickerContainer">
+    <!-- cloned by JS -->
+  </div>
+</section>
+
+<!-- ABOUT RIBBON -->
+<section class="about-ribbon" id="about">
+  <div class="container">
+    <div class="about-ribbon-inner">
+      <div>
+        <div class="section-tag" data-i18n="about_tag">About Bavozan Group</div>
+        <h2 class="section-title" data-i18n="about_title">Kurdistan's Gateway to WHOOP</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="about_desc">
+          Founded in 2026 in Erbil, Bavozan Group was the first to bring WHOOP – the world's leading fitness wearable – to Kurdistan and Iraq. We offer all WHOOP series including new and used devices, with and without subscription, plus all official bands and accessories.
+        </p>
+        <br>
+        <p class="section-sub" data-i18n="about_desc2">
+          We deliver to all cities in Iraq. Kurdistan cities enjoy a 3,500 IQ delivery fee, while other Iraqi cities are charged 5,000 IQ. Your WHOOP journey starts here.
+        </p>
+      </div>
+      <div class="about-visual-stack">
+        <div class="about-main-card">
+          <img src="logo.png" alt="Bavozan Group Logo" class="about-logo" onerror="this.style.display='none'">
+          <h3>Bavozan Group</h3>
+          <p>Official WHOOP Retailer<br>Erbil, Kurdistan – Iraq</p>
+          <div class="about-tag-cards">
+            <div class="about-tag-card">
+              <div class="emoji">🆕</div>
+              <strong data-i18n="tag_new">New WHOOP</strong>
+              <p data-i18n="tag_new_sub">All Latest Models</p>
+            </div>
+            <div class="about-tag-card">
+              <div class="emoji">♻️</div>
+              <strong data-i18n="tag_used">Used WHOOP</strong>
+              <p data-i18n="tag_used_sub">With/Without Sub</p>
+            </div>
+            <div class="about-tag-card">
+              <div class="emoji">⌚</div>
+              <strong data-i18n="tag_bands">Bands</strong>
+              <p data-i18n="tag_bands_sub">All Colors & Sizes</p>
+            </div>
+            <div class="about-tag-card">
+              <div class="emoji">🚚</div>
+              <strong data-i18n="tag_delivery">Iraq Delivery</strong>
+              <p data-i18n="tag_delivery_sub">All Cities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="products-header reveal">
+      <div class="section-tag" data-i18n="prod_tag">Our Products</div>
+      <h2 class="section-title" data-i18n="prod_title">Shop WHOOP Collection</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-i18n="prod_sub">Browse our complete WHOOP lineup – from the flagship 5.0 to the proven 4.0 Peak, bands, and accessories.</p>
+    </div>
+
+    <div class="products-filters reveal">
+      <button class="filter-btn active" onclick="filterProducts('all')" data-i18n="filter_all">All</button>
+      <button class="filter-btn" onclick="filterProducts('whoop5')" data-i18n="filter_w5">WHOOP 5.0</button>
+      <button class="filter-btn" onclick="filterProducts('whoop4')" data-i18n="filter_w4">WHOOP 4.0 Peak</button>
+      <button class="filter-btn" onclick="filterProducts('band')" data-i18n="filter_bands">Bands</button>
+      <button class="filter-btn" onclick="filterProducts('used')" data-i18n="filter_used">Used</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- WHOOP GENERATIONS -->
+<section class="generations-section" id="generations">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-tag" data-i18n="gen_tag">Generations</div>
+      <h2 class="section-title" data-i18n="gen_title">Choose Your Generation</h2>
+      <div class="divider" style="margin:16px auto;"></div>
+      <p class="section-sub" style="margin:0 auto;" data-i18n="gen_sub">Compare WHOOP 4.0 Peak and the revolutionary WHOOP 5.0 and find what fits your performance goals.</p>
+    </div>
+    <div class="gen-cards reveal">
+      <!-- WHOOP 4.0 Peak -->
+      <div class="gen-card">
+        <div class="gen-card-header">
+          <div class="gen-version">GENERATION 4.0</div>
+          <div class="gen-name">WHOOP 4.0 Peak</div>
+          <div class="gen-tagline">The Proven Performance Tracker</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="gen-specs">
+            <div class="gen-spec">
+              <div class="gen-spec-icon">❤️</div>
+              <div class="gen-spec-text">
+                <strong>Heart Rate + HRV</strong>
+                <span>Continuous 24/7 monitoring</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">😴</div>
+              <div class="gen-spec-text">
+                <strong>Advanced Sleep Coach</strong>
+                <span>Sleep stages & recovery score</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🔋</div>
+              <div class="gen-spec-text">
+                <strong>5 Day Battery Life</strong>
+                <span>Charge while wearing it</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🏊</div>
+              <div class="gen-spec-text">
+                <strong>Water Resistant</strong>
+                <span>Swimming & showers safe</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">📱</div>
+              <div class="gen-spec-text">
+                <strong>WHOOP App</strong>
+                <span>Deep analytics & coaching</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🔄</div>
+              <div class="gen-spec-text">
+                <strong>New & Used Available</strong>
+                <span>With or without subscription</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="btn-order" onclick="filterAndScroll('whoop4')" data-i18n="gen_shop">Shop WHOOP 4.0 Peak</button>
+        </div>
+      </div>
+
+      <!-- WHOOP 5.0 -->
+      <div class="gen-card">
+        <div class="gen-card-header" style="background:linear-gradient(135deg,#1A0A0E,#6B0F1A,#A01E30);">
+          <div class="gen-version">GENERATION 5.0 ✨ NEW</div>
+          <div class="gen-name">WHOOP 5.0</div>
+          <div class="gen-tagline">The Future of Health Intelligence</div>
+        </div>
+        <div class="gen-card-body">
+          <div class="gen-specs">
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🧬</div>
+              <div class="gen-spec-text">
+                <strong>Advanced Healthspan Metrics</strong>
+                <span>New health metrics never seen before</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🤖</div>
+              <div class="gen-spec-text">
+                <strong>AI Health Coach</strong>
+                <span>Personalized AI-driven recommendations</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">💡</div>
+              <div class="gen-spec-text">
+                <strong>Stress & Cardiovascular Monitor</strong>
+                <span>Elevated tracking precision</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">⚡</div>
+              <div class="gen-spec-text">
+                <strong>All-Day Energy & Readiness</strong>
+                <span>Real-time energy depletion tracking</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🎨</div>
+              <div class="gen-spec-text">
+                <strong>Redesigned Form Factor</strong>
+                <span>Thinner, sleeker, more comfortable</span>
+              </div>
+            </div>
+            <div class="gen-spec">
+              <div class="gen-spec-icon">🌡️</div>
+              <div class="gen-spec-text">
+                <strong>Skin Temperature Sensor</strong>
+                <span>Now with medical-grade precision</span>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="btn-order" style="background:linear-gradient(135deg,#8B1A28,#C02030);" onclick="filterAndScroll('whoop5')" data-i18n="gen_shop5">Shop WHOOP 5.0</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag" data-i18n="feat_tag">Why WHOOP?</div>
+      <h2 class="section-title" data-i18n="feat_title">More Than a Smartwatch</h2>
+      <div class="divider" style="margin:16px auto;"></div>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title" data-i18n="f1_title">Strain Score</div>
+        <div class="feature-desc" data-i18n="f1_desc">Know how hard your body is working with WHOOP's patented Strain metric. Train smarter, not just harder.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <div class="feature-title" data-i18n="f2_title">Sleep Coach</div>
+        <div class="feature-desc" data-i18n="f2_desc">Get personalized sleep recommendations based on your goals. WHOOP tells you exactly when to sleep and wake up.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title" data-i18n="f3_title">Recovery Score</div>
+        <div class="feature-desc" data-i18n="f3_desc">Every morning, WHOOP calculates your recovery and tells you how ready your body is to perform today.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">❤️</div>
+        <div class="feature-title" data-i18n="f4_title">24/7 HRV + HR</div>
+        <div class="feature-desc" data-i18n="f4_desc">Continuous heart rate variability and heart rate tracking. The most accurate wrist-based sensor available.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏃</div>
+        <div class="feature-title" data-i18n="f5_title">Activity Detection</div>
+        <div class="feature-desc" data-i18n="f5_desc">Auto-detects over 100 activities. From CrossFit to swimming, WHOOP captures every workout automatically.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <div class="feature-title" data-i18n="f6_title">Smart Alarm</div>
+        <div class="feature-desc" data-i18n="f6_desc">Wake up at the perfect moment in your sleep cycle. WHOOP's smart alarm leaves you refreshed and ready.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-tag" data-i18n="test_tag">Reviews</div>
+      <h2 class="section-title" data-i18n="test_title">What Our Customers Say</h2>
+      <div class="divider" style="margin:16px auto;"></div>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Best fitness purchase I've ever made. The recovery scores completely changed how I train. Fast delivery to Erbil!"</p>
+        <div class="test-author">
+          <div class="test-avatar">A</div>
+          <div>
+            <div class="test-name">Ahmad K.</div>
+            <div class="test-city">📍 Erbil, Kurdistan</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"WHOOP 5.0 is absolutely incredible. The service from Bavozan Group was perfect, they helped me understand every feature."</p>
+        <div class="test-author">
+          <div class="test-avatar">S</div>
+          <div>
+            <div class="test-name">Sara M.</div>
+            <div class="test-city">📍 Sulaymaniyah, Kurdistan</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Ordered a used WHOOP without subscription for a great deal. Works perfectly! Delivered to Baghdad in 2 days."</p>
+        <div class="test-author">
+          <div class="test-avatar">M</div>
+          <div>
+            <div class="test-name">Mohammed H.</div>
+            <div class="test-city">📍 Baghdad, Iraq</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 data-i18n="cta_title">Ready to Optimize Your Performance?</h2>
+      <p data-i18n="cta_sub">Join thousands who have unlocked their body's full potential with WHOOP. Shop now and get delivery anywhere in Iraq.</p>
+      <div class="cta-buttons">
+        <button class="btn-cta-white" onclick="scrollToProducts()">
+          🛒 <span data-i18n="cta_shop">Shop WHOOP Now</span>
+        </button>
+        <a href="https://wa.me/9647501957254" target="_blank" class="btn-cta-outline">
+          💬 <span data-i18n="cta_chat">Chat on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:50px;">
+      <div class="section-tag" data-i18n="contact_tag">Get in Touch</div>
+      <h2 class="section-title" data-i18n="contact_title">Contact Bavozan Group</h2>
+      <div class="divider"></div>
+      <p class="section-sub" data-i18n="contact_sub">We're here to help you choose the right WHOOP and answer all your questions.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info-card">
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-content">
+            <div class="ci-label" data-i18n="ci_phone">Phone</div>
+            <div class="ci-value"><a href="tel:+9647501957254" data-i18n="phone_display">+964 750 195 7254</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">💬</div>
+          <div class="ci-content">
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-value"><a href="https://wa.me/9647501957254" target="_blank" data-i18n="phone_display">+964 750 195 7254</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-content">
+            <div class="ci-label" data-i18n="ci_location">Location</div>
+            <div class="ci-value" data-i18n="ci_loc_val">Erbil, Kurdistan Region, Iraq</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-content">
+            <div class="ci-label" data-i18n="ci_hours">Business Hours</div>
+            <div class="ci-value" data-i18n="ci_hours_val">Sat – Thu: 9:00 AM – 10:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🚚</div>
+          <div class="ci-content">
+            <div class="ci-label" data-i18n="ci_delivery">Delivery</div>
+            <div class="ci-value">
+              <div data-i18n="ci_del_krd">Kurdistan cities: 3,500 IQ</div>
+              <div data-i18n="ci_del_iraq">Other Iraq cities: 5,000 IQ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="social-cards">
+          <a href="https://www.tiktok.com/@bavozan.group" target="_blank" class="social-card tiktok">
+            <div class="sc-icon">🎵</div>
+            <div class="sc-name">TikTok</div>
+            <div class="sc-handle">@bavozan.group</div>
+          </a>
+          <a href="https://www.instagram.com/bavozangroup/" target="_blank" class="social-card instagram">
+            <div class="sc-icon">📸</div>
+            <div class="sc-name">Instagram</div>
+            <div class="sc-handle">@bavozangroup</div>
+          </a>
+          <a href="https://wa.me/9647501957254" target="_blank" class="social-card whatsapp">
+            <div class="sc-icon">💬</div>
+            <div class="sc-name">WhatsApp</div>
+            <div class="sc-handle" data-i18n="phone_display">+964 750 195 7254</div>
+          </a>
+          <a href="tel:+9647501957254" class="social-card phone">
+            <div class="sc-icon">📞</div>
+            <div class="sc-name" data-i18n="social_call">Call Us</div>
+            <div class="sc-handle" data-i18n="phone_display">+964 750 195 7254</div>
+          </a>
+        </div>
+        <br>
+        <div style="background:var(--black-3);border:1px solid rgba(107,15,26,0.2);border-radius:var(--radius-lg);padding:24px;margin-top:4px;">
+          <h3 style="font-size:16px;font-weight:800;margin-bottom:16px;" data-i18n="delivery_title">🚚 Delivery Information</h3>
+          <div style="margin-bottom:14px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white-60);margin-bottom:8px;" data-i18n="del_krd_title">Kurdistan Cities (3,500 IQ)</div>
+            <div style="font-size:13px;color:var(--white-80);line-height:2;" id="kurdistanCitiesText">Erbil • Sulaymaniyah • Duhok • Kirkuk • Halabja • Zakho • Amadiyah • Ranya • Koya • Chamchamal • Shaqlawa • Dokan • Darbandikhan</div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white-60);margin-bottom:8px;" data-i18n="del_iraq_title">Other Iraqi Cities (5,000 IQ)</div>
+            <div style="font-size:13px;color:var(--white-80);line-height:2;" data-i18n="del_iraq_cities">Baghdad • Basra • Mosul • Najaf • Karbala • Nasiriyah • Amarah • Kut • Samawa • Ramadi • Fallujah • Tikrit • And all other cities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="logo.png" alt="Bavozan Group" onerror="this.style.display='none'">
+          <div class="footer-logo-text">BAVOZAN<span style="font-weight:300;"> GROUP</span></div>
+        </div>
+        <p class="footer-about" data-i18n="footer_about">Kurdistan's first and premier WHOOP retailer. Founded in Erbil in 2026, we've pioneered the WHOOP fitness revolution in Iraq. Your health is our mission.</p>
+        <div class="footer-social">
+          <a href="https://www.tiktok.com/@bavozan.group" target="_blank" title="TikTok">🎵</a>
+          <a href="https://www.instagram.com/bavozangroup/" target="_blank" title="Instagram">📸</a>
+          <a href="https://wa.me/9647501957254" target="_blank" title="WhatsApp">💬</a>
+          <a href="tel:+9647501957254" title="Call">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading" data-i18n="footer_products">Products</div>
+        <div class="footer-links">
+          <a href="#products" onclick="filterProducts('whoop5')">WHOOP 5.0</a>
+          <a href="#products" onclick="filterProducts('whoop4')">WHOOP 4.0 Peak</a>
+          <a href="#products" onclick="filterProducts('band')" data-i18n="footer_bands">Bands & Accessories</a>
+          <a href="#products" onclick="filterProducts('used')" data-i18n="footer_used">Used WHOOP</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading" data-i18n="footer_info">Information</div>
+        <div class="footer-links">
+          <a href="#about" data-i18n="nav_about">About Us</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+          <a href="#generations" data-i18n="footer_compare">Compare Models</a>
+          <a href="admin.html" data-i18n="footer_admin">Admin Panel</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading" data-i18n="footer_contact">Contact</div>
+        <div class="footer-links">
+          <a href="tel:+9647501957254"><span data-i18n="phone_display">+964 750 195 7254</span></a>
+          <a href="https://wa.me/9647501957254" target="_blank">💬 WhatsApp</a>
+          <a href="https://www.instagram.com/bavozangroup/" target="_blank">📸 Instagram</a>
+          <a href="https://www.tiktok.com/@bavozan.group" target="_blank">🎵 TikTok</a>
+          <a>📍 Erbil, Kurdistan</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Bavozan Group. All rights reserved. | Erbil, Kurdistan Region, Iraq</span>
+      <span data-i18n="footer_built">Built with ❤️ for Kurdistan</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <div id="orderFormContainer">
+      <div class="modal-header">
+        <h2 data-i18n="modal_title">Place Your Order</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_product">Selected Product</label>
+        <input type="text" id="selectedProductName" readonly style="cursor:default;">
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_name">Full Name</label>
+        <input type="text" id="customerName" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_phone">Phone Number</label>
+        <input type="tel" id="customerPhone" placeholder="+964 750 XXX XXXX" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_city">City / Province</label>
+        <select id="customerCity" onchange="updateDelivery()">
+          <optgroup label="Kurdistan Region (3,500 IQ)">
+            <option value="erbil-krd">Erbil</option>
+            <option value="sulaymaniyah-krd">Sulaymaniyah</option>
+            <option value="duhok-krd">Duhok</option>
+            <option value="kirkuk-krd">Kirkuk</option>
+            <option value="halabja-krd">Halabja</option>
+            <option value="zakho-krd">Zakho</option>
+            <option value="amadiyah-krd">Amadiyah</option>
+            <option value="ranya-krd">Ranya</option>
+            <option value="koya-krd">Koya</option>
+            <option value="chamchamal-krd">Chamchamal</option>
+            <option value="shaqlawa-krd">Shaqlawa</option>
+            <option value="dokan-krd">Dokan</option>
+            <option value="darbandikhan-krd">Darbandikhan</option>
+            <option value="akre-krd">Akre</option>
+            <option value="soran-krd">Soran</option>
+          </optgroup>
+          <optgroup label="Other Iraqi Cities (5,000 IQ)">
+            <option value="baghdad-iraq">Baghdad</option>
+            <option value="basra-iraq">Basra</option>
+            <option value="mosul-iraq">Mosul</option>
+            <option value="najaf-iraq">Najaf</option>
+            <option value="karbala-iraq">Karbala</option>
+            <option value="nasiriyah-iraq">Nasiriyah</option>
+            <option value="amarah-iraq">Amarah</option>
+            <option value="kut-iraq">Kut</option>
+            <option value="samawa-iraq">Samawa</option>
+            <option value="ramadi-iraq">Ramadi</option>
+            <option value="fallujah-iraq">Fallujah</option>
+            <option value="tikrit-iraq">Tikrit</option>
+            <option value="hillah-iraq">Hillah</option>
+            <option value="baqubah-iraq">Baqubah</option>
+            <option value="samarra-iraq">Samarra</option>
+            <option value="other-iraq">Other</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_address">Detailed Address</label>
+        <input type="text" id="customerAddress" placeholder="Street, neighborhood..." required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="form_notes">Notes (Optional)</label>
+        <textarea id="orderNotes" placeholder="Any special requests or questions..."></textarea>
+      </div>
+      <div class="delivery-info-box" id="deliveryInfoBox">
+        <div data-i18n="delivery_label">🚚 Delivery Fee:</div>
+        <div class="delivery-amount" id="deliveryFeeDisplay">3,500 IQ</div>
+      </div>
+      <button class="btn-submit" onclick="submitOrder()" data-i18n="form_submit">Confirm Order via WhatsApp</button>
+    </div>
+    <div class="success-order" id="orderSuccessContainer" style="display:none;">
+      <div class="success-icon">✅</div>
+      <h3 data-i18n="success_title">Order Sent!</h3>
+      <p data-i18n="success_msg">Your order has been forwarded to WhatsApp. Bavozan Group will contact you shortly to confirm your order.</p>
+      <br>
+      <button class="btn-primary" onclick="closeModal()" style="margin: 0 auto; display:flex;">
+        <span data-i18n="success_close">Close</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
